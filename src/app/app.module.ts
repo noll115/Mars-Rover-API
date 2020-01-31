@@ -3,14 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PhotoCardComponent } from './components/photo-card/photo-card.component';
+import { HttpClientModule } from "@angular/common/http";
+import { DropDownMenuComponent } from './components/drop-down-menu/drop-down-menu.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PhotoCardComponent,
+    DropDownMenuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
