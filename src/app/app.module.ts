@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { PhotoCardComponent } from './components/photo-card/photo-card.component';
+import { PhotoCardComponent } from './components/photo-card/photo-card.component';
 import { HttpClientModule } from "@angular/common/http";
 import { DropDownMenuComponent } from './components/drop-down-menu/drop-down-menu.component';
 
@@ -12,7 +12,7 @@ import { DropDownMenuComponent } from './components/drop-down-menu/drop-down-men
   declarations: [
     AppComponent,
     DropDownMenuComponent,
-    // PhotoCardComponent,
+    PhotoCardComponent,
   ],
   imports: [
     BrowserModule,
