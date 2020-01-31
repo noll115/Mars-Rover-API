@@ -1,7 +1,17 @@
 <div>
     <span class="header">
-        <span class="title">{{selectedRover}} Images </span>
-        <span></span>
+        <span class="title">
+            <span>{{selectedRover}} Images</span>
+            <div *ngIf="roverData" class="subTitle">Launch date: {{roverData.landing_date }} | Landed:
+                {{roverData.landing_date}} | Max
+                Sol: {{roverData.max_sol}} </div>
+        </span>
+        <span class="filters">
+            <app-drop-down-menu [label]="'Cameras'" [boxText]="'cameras'" [checkBoxes]="true" [choices]=""></app-drop-down-menu>
+        </span>
     </span>
+
+    <div class="container cardGrid">
+    </div>
 </div>
 <router-outlet></router-outlet>
