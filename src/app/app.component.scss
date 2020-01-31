@@ -1,6 +1,33 @@
-.header{
-    font-size: 3em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+$DarkBlue: #003f64;
+$DarkBlueComp: #5f5895;
+$LavGray: #c4cad0;
+$BackgroundColor: #eef4ed;
+
+.header {
+  color: white;
+  display: flex;
+  background-color: $DarkBlue;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2% 5% 2% 5%;
+}
+.subTitle {
+  padding-top: 1%;
+  font-size: 0.8rem;
+}
+
+.title {
+  font-size: 3em;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.filters {
+  align-self: flex-end;
+}
+
+.cardGrid {
+  background-color: $LavGray;
 }
