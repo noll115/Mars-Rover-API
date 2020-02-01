@@ -1,7 +1,16 @@
 <span>
     <span>{{label}}</span>
-    <div class="clickBox">
+    <div class="clickBox" (click)="DropMenu()">
         <span *ngIf="!checkBoxes" class="boxText">{{currentChoice}}</span>
-        <span *ngIf="checkBoxes" class="boxText" >{{boxText}}</span>
+        <span *ngIf="checkBoxes" class="boxText">{{numOfChoicesChosen}} Selected</span>
+        <svg class="downArrow" viewBox="0 0 24 24">
+            <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+        </svg>
     </div>
+    <span *ngIf="true" class="dropDown">
+        <span class="selectors"><span>Select All</span> <span>Clear</span></span>
+        <label (click)="ChoiceSelect(i)" class="choice" *ngFor="let choice of choices; let i=index">
+            <input type="checkbox" [id]="i">{{choice}}
+        </label>
+    </span>
 </span>

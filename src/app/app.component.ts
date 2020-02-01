@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
       { "name": "RHAZ", "full_name": "Rear Hazard Avoidance Camera" }
     ]
   };
-  usableCameras: string[] = ["Front Hazard Avoidance Camera", "Navigation Camera"];
+  usableCameras: string[] = ["Front Hazard Avoidance Camera","Front Hazard Avoidance Camera","Front Hazard Avoidance Camera","Front Hazard Avoidance Camera","Front Hazard Avoidance Camera","Front Hazard Avoidance Camera", "Navigation Camera"];
   selectedRover: RoverNames = RoverNames.Curiosity;
   roverQuery: HttpParams = new HttpParams({
     fromObject: {

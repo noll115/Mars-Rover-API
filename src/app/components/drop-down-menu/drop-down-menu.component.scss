@@ -1,14 +1,65 @@
 .clickBox {
-  height: 2rem;
+  height: 3rem;
   border-radius: 5px;
-  width: 8rem;
+  width: 14rem;
   background-color: white;
   color: black;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  cursor: pointer;
 }
 .boxText {
-  width: 50%;
-  height: 1rem;
-  margin: 0 25% ;
+  font-size: 17px;
+  user-select: none;
+  text-align: center;
+  margin-left: 1rem;
+  width: 70%;
+  text-align: left;
+}
 
+.downArrow {
+  height: 1.5rem;
+  width: 1.5rem;
+  transform: rotate(90deg);
+}
+
+.dropDown {
+  margin: 0.5rem 0 0 0;
+  padding: 1rem 0 1rem 0;
+  user-select: none;
+  border-radius: 5px;
+  font-weight: normal;
+  display: flex;
+  position: absolute;
+  width: fit-content;
+  flex-direction: column;
+  color: black;
+  background-color: white;
+}
+
+.selectors {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 1rem;
+  & span {
+    cursor: pointer;
+  }
+}
+.choice {
+  cursor: pointer;
+  margin: 0.8rem 1rem 0 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+
+  & > input {
+    appearance: none;
+    margin: 0 0.5rem 0 0;
+    padding: 0.5rem;
+    border: 3px solid black;
+    &:checked {
+      background-color: red;
+    }
+  }
 }

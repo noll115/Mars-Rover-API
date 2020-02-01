@@ -10,17 +10,27 @@ export class DropDownMenuComponent implements OnInit {
   @Input() checkBoxes: boolean = false;
   @Input() label: string;
   @Input() boxText: string;
-  @Input() dChoice:string;
   currentChoice: String = "";
   numOfChoicesChosen: number = 0;
+  dropDown:boolean = false;
   constructor() { }
 
   ngOnInit() {
-    this.currentChoice = this.dChoice;
   }
 
-  OnClick() {
+  DropMenu() {
     //display choices
+    this.dropDown = !this.dropDown;
   }
 
+  ChoiceSelect(index:number){
+    console.log(index);
+  }
+
+  ClearSelection(){
+
+  }
+  SelectAll(){
+    
+  }
 }

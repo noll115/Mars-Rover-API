@@ -13,7 +13,8 @@ $BackgroundColor: #eef4ed;
 }
 .subTitle {
   padding-top: 1%;
-  font-size: 0.8rem;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 .title {
@@ -30,4 +31,5 @@ $BackgroundColor: #eef4ed;
 
 .cardGrid {
   background-color: $LavGray;
+  height: 80vh;
 }
