@@ -58,8 +58,29 @@
     margin: 0 0.5rem 0 0;
     padding: 0.5rem;
     border: 3px solid black;
+    position: relative;
+    cursor: pointer;
     &:checked {
-      background-color: red;
+      &::before{
+        content: '';
+        top: 0.1rem;
+        left: 0.05rem;
+        position: absolute;
+        height: 0.25rem;
+        width: 0.65rem;
+        border-left: 4px solid black;
+        border-bottom: 4px solid black;
+        transform: rotateZ(-45deg);
+      }
     }
+  }
+}
+
+@keyframes checked{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
   }
 }
