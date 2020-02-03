@@ -7,7 +7,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { DropDownMenuComponent } from './components/drop-down-menu/drop-down-menu.component';
 import { NumberInputComponent } from './components/number-input/number-input.component';
 import { FormsModule } from "@angular/forms";
-
+import { PhotoGridComponent } from './components/photo-grid/photo-grid.component';
+import { NASAService } from "./services/nasa.service";
 
 @NgModule({
   declarations: [
@@ -15,15 +16,16 @@ import { FormsModule } from "@angular/forms";
     DropDownMenuComponent,
     PhotoCardComponent,
     NumberInputComponent,
+    PhotoGridComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [NASAService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

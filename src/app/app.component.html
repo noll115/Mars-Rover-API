@@ -6,14 +6,15 @@
                 {{roverData.landing_date}} | Max
                 Sol: {{roverData.max_sol}} </div>
         </span>
-        <span class="filters">
+        <span *ngIf="roverData" class="filters">
             <app-drop-down-menu [label]="'Cameras'" [choices]="usableCameras" (selected)="OnCameraSelection($event)">
             </app-drop-down-menu>
-            <app-number-input class="numInput" [label]="'Sol'" [maxNum]="roverData.max_sol"></app-number-input>
+            <app-number-input (submit)="setSol($event)" class="numInput" [label]="'Sol'" [maxNum]="roverData.max_sol"></app-number-input>
         </span>
     </span>
 
-    <div class="container cardGrid">
+    <div class="cardGrid">
+        <app-photo-grid></app-photo-grid>
     </div>
 </div>
 <router-outlet></router-outlet>
