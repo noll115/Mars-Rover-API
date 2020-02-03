@@ -1,0 +1,11 @@
+input[type="number"] {
+  display: block;
+  font-size: 17px;
+  height: 3rem;
+  width:5rem;
+  border-radius: 5px;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
+}
