@@ -34,7 +34,14 @@ export class AppComponent implements OnInit {
       { "name": "RHAZ", "full_name": "Rear Hazard Avoidance Camera" }
     ]
   };
-  usableCameras: string[] = ["Front Hazard Avoidance Camera","Front Hazard Avoidance Camera","Front Hazard Avoidance Camera","Front Hazard Avoidance Camera","Front Hazard Avoidance Camera","Front Hazard Avoidance Camera", "Navigation Camera"];
+  usableCameras: string[] = [
+    "Front Hazard Avoidance Camera",
+    "Navigation Camera",
+    "Mast Camera",
+    "Chemistry and Camera Complex",
+    "Mars Hand Lens Imager",
+    "Mars Descent Imager",
+    "Rear Hazard Avoidance Camera"];
   selectedRover: RoverNames = RoverNames.Curiosity;
   roverQuery: HttpParams = new HttpParams({
     fromObject: {
@@ -72,6 +79,8 @@ export class AppComponent implements OnInit {
     // this.http.get(roverURL, { params: this.roverQuery }).subscribe(this.roverObserver);
   }
 
+  OnCameraSelection(CamerasSelected: string[]) {
+  }
 
   ngOnInit(): void {
     this.queryRover(RoverNames.Curiosity);

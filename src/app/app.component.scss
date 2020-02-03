@@ -27,6 +27,11 @@ $BackgroundColor: #eef4ed;
 
 .filters {
   align-self: flex-end;
+  display: flex;
+  align-content: flex-end;
+  & > * {
+    margin: 0 0 0 1rem;
+  }
 }
 
 .cardGrid {
