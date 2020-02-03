@@ -30,7 +30,7 @@
 .clickBox {
   height: 3rem;
   border-radius: 5px;
-  width: 14rem;
+  width: 12rem;
   background-color: white;
   color: black;
   display: flex;
@@ -43,12 +43,13 @@
   user-select: none;
   text-align: center;
   margin-left: 1rem;
-  width: 70%;
+  width: 75%;
   text-align: left;
 }
 
 .selectors {
   display: flex;
+  color: green;
   justify-content: space-between;
   padding: 0.2rem 1rem;
   & span {

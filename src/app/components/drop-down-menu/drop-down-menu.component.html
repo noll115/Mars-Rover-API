@@ -12,7 +12,7 @@
             <span (click)="ClearSelection()">Clear</span>
         </span>
         <label (click)="ChoiceSelect(i,$event)" class="choice" *ngFor="let choice of choices; let i=index">
-            <input type="checkbox" [id]="i" [checked]="isChecked(i)">{{choice}}
+            <input type="checkbox" [id]="i" [checked]="isChecked(i)">{{choice.full_name}}
         </label>
     </span>
 </span>

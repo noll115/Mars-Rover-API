@@ -1,20 +1,20 @@
 <div>
-    <span class="header">
+    <span *ngIf="roverData" class="header">
         <span class="title">
             <span>{{selectedRover}} Images</span>
-            <div *ngIf="roverData" class="subTitle">Launch date: {{roverData.landing_date }} | Landed:
-                {{roverData.landing_date}} | Max
-                Sol: {{roverData.max_sol}} </div>
+            <div class="subTitle">Launch date: {{roverData.landing_date }} | Landed:
+                {{roverData.landing_date}} | Max Sol: {{roverData.max_sol}} </div>
         </span>
-        <span *ngIf="roverData" class="filters">
+        <span class="filters">
             <app-drop-down-menu [label]="'Cameras'" [choices]="usableCameras" (selected)="OnCameraSelection($event)">
             </app-drop-down-menu>
-            <app-number-input (submit)="setSol($event)" class="numInput" [label]="'Sol'" [maxNum]="roverData.max_sol"></app-number-input>
+            <app-number-input (submit)="setSol($event)" class="numInput" [label]="'Sol'" [maxNum]="roverData.max_sol ">
+            </app-number-input>
         </span>
     </span>
 
     <div class="cardGrid">
-        <app-photo-grid></app-photo-grid>
+        <app-photo-grid [selectedCams]="selectedCams" [camsOnSol]="usedCamsOnSol"></app-photo-grid>
     </div>
 </div>
 <router-outlet></router-outlet>

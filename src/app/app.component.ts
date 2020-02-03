@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observer, forkJoin } from 'rxjs';
-import { RoverData } from "./models/rover-data";
+import { RoverData, CamNames } from "./models/rover-data";
 import { Rovers } from "./models/rovers.enum";
 import { NASAService } from './services/nasa.service';
 import { SolCameraData } from './models/sol-camera-data';
@@ -14,42 +14,43 @@ import { SolCameraData } from './models/sol-camera-data';
 })
 export class AppComponent implements OnInit {
   roverData: RoverData;
-  usableCameras: string[] = [];
+  usableCameras: CamNames = [];
   selectedRover: Rovers = Rovers.Curiosity;
-  solCamData: SolCameraData;
-  nameToFull: Map<string, string> = new Map<string, string>();
+  solCamData: SolCameraData = {};
+  usedCamsOnSol = [];
+  selectedCams: CamNames = [];
 
 
   private dataObserver: Observer<[RoverData, SolCameraData]> = {
     next: ([roverData, solCameraData]) => {
       this.roverData = roverData;
       this.solCamData = solCameraData;
-      this.roverData.cameras.forEach(cam => this.nameToFull[cam.name] = cam.full_name);
+      this.usableCameras = roverData.cameras;
+      this.selectedCams = [...roverData.cameras];
     },
     error: (err: any) => console.error(err),
-    complete: () => null
+    complete: () => this.setSol(0)
   }
 
   constructor(private nasaService: NASAService) {
   }
 
 
-
-
   setSol(sol: number) {
+    console.log(sol);
+
     let camData = this.solCamData[sol];
     if (camData !== undefined) {
-      this.usableCameras = camData.cameras.map(cam => this.nameToFull[cam]);
+      this.usedCamsOnSol = camData.cameras;
     }
     else {
-      this.usableCameras = [];
+      this.usedCamsOnSol = [];
     }
   }
 
 
-  OnCameraSelection(CamerasSelected: string[]) {
-    console.log(CamerasSelected);
-
+  OnCameraSelection(CamerasSelected: CamNames) {
+    this.selectedCams = CamerasSelected;
   }
 
   ngOnInit(): void {
@@ -57,5 +58,6 @@ export class AppComponent implements OnInit {
     let solQuery = this.nasaService.getSolData(this.selectedRover);
     forkJoin<RoverData, SolCameraData>([roverQuery, solQuery]).subscribe(this.dataObserver);
   }
+
 
 }

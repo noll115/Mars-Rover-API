@@ -1,45 +1,55 @@
-import { Component, OnInit, Input, OnChanges, EventEmitter, SimpleChanges, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { CamNames } from 'src/app/models/rover-data';
 
 @Component({
   selector: 'app-drop-down-menu',
   templateUrl: './drop-down-menu.component.html',
   styleUrls: ['./drop-down-menu.component.scss']
 })
-export class DropDownMenuComponent implements OnInit, OnChanges {
-  @Input() choices: string[];
+export class DropDownMenuComponent implements OnInit {
+  private _choices: CamNames;
+
+
+  @Input()
+  set choices(inChoices: CamNames) {
+    this.chosenArray = [...inChoices];
+    this._choices = inChoices;
+    this.numOfChoicesChosen = this.choices.length;
+  }
+  get choices(): CamNames {
+    return this._choices;
+  }
+
+
   @Input() label: string;
   @Input() boxText: string;
-  @Output() selected = new EventEmitter<string[]>();
-  currentChoice: String = "";
+  @Output() selected = new EventEmitter<CamNames>();
   numOfChoicesChosen: number;
   dropDown: boolean = false;
-  chosenArray: string[];
+  chosenArray: CamNames;
 
   constructor() { }
 
   ngOnInit() {
-    this.numOfChoicesChosen = this.choices.length;
-    this.SelectAll();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-
-  }
-
+  //display choices
   DropMenu() {
-    //display choices
     this.dropDown = !this.dropDown;
   }
 
   ChoiceSelect(index: number, event) {
     if (event.target.tagName === "INPUT") {
-      let arrIndex = this.chosenArray.indexOf(this.choices[index]);
+      let newElement = this.choices[index];
+      let arrIndex = this.chosenArray.indexOf(newElement);
       if (arrIndex !== -1) {
         this.chosenArray.splice(arrIndex, 1);
       } else {
-        this.chosenArray.push(this.choices[index]);
+        this.chosenArray = this._choices.filter((camName) => {
+          if (this.chosenArray.includes(camName) || camName == newElement) {
+            return camName;
+          }
+        })
       }
       this.numOfChoicesChosen = this.chosenArray.length;
       this.selected.emit(this.chosenArray);
@@ -49,13 +59,12 @@ export class DropDownMenuComponent implements OnInit, OnChanges {
   isChecked(index: number) {
     return this.chosenArray.includes(this.choices[index]);
   }
-
   ClearSelection() {
     this.numOfChoicesChosen = 0;
     this.chosenArray = [];
+    this.selected.emit(this.chosenArray);
   }
   SelectAll() {
-
     this.chosenArray = [...this.choices];
     this.numOfChoicesChosen = this.chosenArray.length;
     this.selected.emit(this.chosenArray);
