@@ -13,6 +13,7 @@ export class NumberInputComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.submit.emit(this.inputNumber);
   }
 
   OnInput(event) {
