@@ -1,0 +1,5 @@
+<div>
+    <span *ngFor="let selectedCam of selectedCams">
+        <app-photo-card [label]="selectedCam.full_name" [cardData]="GetCamData(selectedCam.name)"></app-photo-card>
+    </span>
+</div>
