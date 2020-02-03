@@ -1,8 +1,4 @@
-interface RoverCams {
-    name: string,
-    full_name: string,
-}
-
+import { RoverCams } from "./cameras";
 export interface RoverData {
     id: Number,
     name: string,
