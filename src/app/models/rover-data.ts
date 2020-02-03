@@ -1,4 +1,10 @@
-import { RoverCams } from "./cameras";
+interface RoverCam {
+    name: string,
+    full_name: string,
+}
+
+interface RoverCams extends Array<RoverCam> { }
+
 export interface RoverData {
     id: Number,
     name: string,
@@ -8,5 +14,5 @@ export interface RoverData {
     max_sol: number,
     max_date: string,
     total_photos: Number,
-    cameras: RoverCams[]
+    cameras: RoverCams
 }
