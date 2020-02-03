@@ -1,4 +1,33 @@
 .clickBox {
+  width: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  cursor: pointer;
+}
+
+.downArrow {
+  height: 1.5rem;
+  width: 1.5rem;
+  transform: rotate(90deg);
+}
+
+.dropDownMenu {
+  margin: 0.1rem 0 0 0;
+  padding: 1rem 0 1rem 0;
+  user-select: none;
+  border-radius: 5px;
+  font-weight: normal;
+  display: flex;
+  position: absolute;
+  width: fit-content;
+  flex-direction: column;
+  color: black;
+  background-color: white;
+}
+
+
+.clickBox {
   height: 3rem;
   border-radius: 5px;
   width: 14rem;
@@ -16,26 +45,6 @@
   margin-left: 1rem;
   width: 70%;
   text-align: left;
-}
-
-.downArrow {
-  height: 1.5rem;
-  width: 1.5rem;
-  transform: rotate(90deg);
-}
-
-.dropDown {
-  margin: 0.5rem 0 0 0;
-  padding: 1rem 0 1rem 0;
-  user-select: none;
-  border-radius: 5px;
-  font-weight: normal;
-  display: flex;
-  position: absolute;
-  width: fit-content;
-  flex-direction: column;
-  color: black;
-  background-color: white;
 }
 
 .selectors {
@@ -61,8 +70,8 @@
     position: relative;
     cursor: pointer;
     &:checked {
-      &::before{
-        content: '';
+      &::before {
+        content: "";
         top: 0.1rem;
         left: 0.05rem;
         position: absolute;
@@ -76,11 +85,11 @@
   }
 }
 
-@keyframes checked{
-  from{
+@keyframes checked {
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
   }
 }
