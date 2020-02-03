@@ -16,7 +16,7 @@ interface CamName {
     full_name: string,
 }
 
-interface CamNames extends Array<CamNames> { }
+export interface CamNames extends Array<CamName> { }
 
 export interface RoverData {
     id: Number,
