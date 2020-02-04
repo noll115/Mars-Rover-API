@@ -38,10 +38,12 @@ export class AppComponent implements OnInit {
 
   setSol(sol: number) {
     let camData = this.solCamData[sol];
+    //check if sol exists
     if (camData !== undefined) {
       this.usedCamsOnSol = { sol, camsUsed: camData.cameras };
     }
     else {
+      //sol doesnt exist therefore no cameras
       this.usedCamsOnSol = { sol, camsUsed: [] };
     }
   }

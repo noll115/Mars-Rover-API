@@ -32,7 +32,6 @@ export class PhotoGridComponent implements OnInit {
   @Input()
   set camsOnSol(payload: SolPayload) {
     if (!payload) return;
-    console.log(payload);
     this.loading = true;
     let { camsUsed, sol } = payload;
     this.camsUsed = camsUsed;

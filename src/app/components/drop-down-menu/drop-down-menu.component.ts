@@ -43,6 +43,7 @@ export class DropDownMenuComponent implements OnInit {
       let newElement = this.choices[index];
       let arrIndex = this.chosenArray.indexOf(newElement);
       if (arrIndex !== -1) {
+        //have to reassign array bc angular detects changes based on reference 
         this.chosenArray = this.chosenArray.filter((_, index) => index !== arrIndex);
       } else {
         this.chosenArray = this._choices.filter((camName) => {

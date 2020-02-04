@@ -15,8 +15,9 @@ export class NumberInputComponent implements OnInit {
   ngOnInit() {
   }
   
-  OnInput(event) {
+  OnInput(event) {//filter
     let character = event.charCode;
+    //only allow numbers not . e E - +
     if (character == 101 || character == 69 || character == 46 || character == 43 || character == 45) {
       return false;
     }
@@ -24,6 +25,7 @@ export class NumberInputComponent implements OnInit {
   }
 
   OnSubmit() {
+    //check if number is  actually allowed
     if (this.inputNumber == null) {
       this.inputNumber = 0;
     }

@@ -11,7 +11,7 @@ import { CamPhotoData } from '../models/cam-photo-data';
   providedIn: 'root'
 })
 export class NASAService {
-  private api_key: string = "S43c9bH3x5tdLI6sYUDCb4lmtJuzoFMDGC5Q6bXk";
+  private api_key: string = "DEMO_KEY";
   constructor(private http: HttpClient) { }
 
   public getSolData(): Observable<SolCameraData> {

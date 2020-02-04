@@ -16,17 +16,4 @@
   padding: 1.5rem;
   border-radius: 10px;
   background-color: #84acce;
-  opacity: 0;
-  transform-origin: left;
-  animation: appear 0.2s linear forwards;
 }
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
