@@ -37,6 +37,7 @@ export class PhotoGridComponent implements OnInit {
     this.camsUsed = camsUsed;
     //choose new sol so query for pictures and reset all cards
     this.CancelAllRequests();
+    //.clear() was not working for unknown reason as old keys were still in map
     this._camData = new Map();
     let requests = []
     for (const cam of camsUsed) {
