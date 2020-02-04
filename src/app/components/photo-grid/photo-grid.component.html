@@ -1,5 +1,8 @@
 <div>
-    <span *ngFor="let selectedCam of selectedCams">
-        <app-photo-card [label]="selectedCam.full_name" [cardData]="GetCamData(selectedCam.name)"></app-photo-card>
+    <span class="cardGrid">
+        <app-photo-card *ngFor="let cam of this.orderedCams" class="card"
+            [ngStyle]="{'height': camsUsed.includes(cam.name) || camsUsed.indexOf(cam.name) < 4 ?'auto' :'min-content' }" [label]="cam.full_name"
+            [key]="cam.name" [cardData]="GetCamData(cam.name)" [OnNewData]="newDataEmitter" [loading]="camsUsed.includes(cam.name) && loading">
+        </app-photo-card>
     </span>
 </div>

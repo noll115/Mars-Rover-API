@@ -1,7 +1,13 @@
 $DarkBlue: #003f64;
 $DarkBlueComp: #5f5895;
-$LavGray: #c4cad0;
+$LavGray: #EEF4ED;
 $BackgroundColor: #eef4ed;
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 
 .header {
   color: white;
@@ -9,12 +15,14 @@ $BackgroundColor: #eef4ed;
   background-color: $DarkBlue;
   flex-direction: row;
   justify-content: space-between;
-  padding: 2% 5% 2% 5%;
+  padding: 2% 5% 1% 5%;
+  flex: 0.2;
+  max-height: fit-content;
 }
 .subTitle {
   padding-top: 1%;
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .title {
@@ -36,4 +44,5 @@ $BackgroundColor: #eef4ed;
 
 .cardGrid {
   background-color: $LavGray;
+  flex: 1;
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observer, forkJoin } from 'rxjs';
-import { RoverData, CamNames } from "./models/rover-data";
+import { RoverData, CamNames, RoverCameras } from "./models/rover-data";
 import { Rovers } from "./models/rovers.enum";
 import { NASAService } from './services/nasa.service';
-import { SolCameraData } from './models/sol-camera-data';
+import { SolCameraData, SolPayload } from './models/sol-camera-data';
 
 
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   usableCameras: CamNames = [];
   selectedRover: Rovers = Rovers.Curiosity;
   solCamData: SolCameraData = {};
-  usedCamsOnSol = [];
+  usedCamsOnSol: SolPayload;
   selectedCams: CamNames = [];
 
 
@@ -37,14 +37,12 @@ export class AppComponent implements OnInit {
 
 
   setSol(sol: number) {
-    console.log(sol);
-
     let camData = this.solCamData[sol];
     if (camData !== undefined) {
-      this.usedCamsOnSol = camData.cameras;
+      this.usedCamsOnSol = { sol, camsUsed: camData.cameras };
     }
     else {
-      this.usedCamsOnSol = [];
+      this.usedCamsOnSol = { sol, camsUsed: [] };
     }
   }
 
@@ -54,8 +52,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let roverQuery = this.nasaService.getRoverData(this.selectedRover);
-    let solQuery = this.nasaService.getSolData(this.selectedRover);
+    let roverQuery = this.nasaService.getRoverData();
+    let solQuery = this.nasaService.getSolData();
     forkJoin<RoverData, SolCameraData>([roverQuery, solQuery]).subscribe(this.dataObserver);
   }
 

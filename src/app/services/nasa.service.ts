@@ -14,8 +14,8 @@ export class NASAService {
   private api_key: string = "S43c9bH3x5tdLI6sYUDCb4lmtJuzoFMDGC5Q6bXk";
   constructor(private http: HttpClient) { }
 
-  public getSolData(rover: Rovers): Observable<SolCameraData> {
-    let manifestURL = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}`
+  public getSolData(): Observable<SolCameraData> {
+    let manifestURL = `https://api.nasa.gov/mars-photos/api/v1/manifests/Curiosity`
     let params: HttpParams = new HttpParams({ fromObject: { api_key: this.api_key } })
     return this.http.get(manifestURL, { params })
       .pipe(map(res => {
@@ -29,20 +29,21 @@ export class NASAService {
       }));
   }
 
-  public getRoverData(rover: Rovers): Observable<RoverData> {
-    let roverURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover.toLowerCase()}/`;
+  public getRoverData(): Observable<RoverData> {
+    let roverURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/`;
     let params: HttpParams = new HttpParams({ fromObject: { api_key: this.api_key } })
     return this.http.get(roverURL, { params }).pipe(map(res => {
       return (res['rover'] as RoverData)
     }));
   }
   //should only be called when there are photos
-  public getPhotos(rover: Rovers, sol: number, camera: RoverCameras): Observable<CamPhotoData> {
+  public getPhotos(sol: number, camera: RoverCameras): Observable<CamPhotoData> {
     let photoURL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos`
     let params: HttpParams = new HttpParams({ fromObject: { api_key: this.api_key, sol: sol.toString(), camera } })
     return this.http.get(photoURL, { params }).pipe(map(res => {
       let photos: any[] = res['photos'];
       let camData: CamPhotoData = {
+        name: photos[0]['camera']['name'],
         numOfPhotos: photos.length,
         sampleImg: photos[0]['img_src']
       };

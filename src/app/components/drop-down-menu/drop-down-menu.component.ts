@@ -43,13 +43,13 @@ export class DropDownMenuComponent implements OnInit {
       let newElement = this.choices[index];
       let arrIndex = this.chosenArray.indexOf(newElement);
       if (arrIndex !== -1) {
-        this.chosenArray.splice(arrIndex, 1);
+        this.chosenArray = this.chosenArray.filter((_, index) => index !== arrIndex);
       } else {
         this.chosenArray = this._choices.filter((camName) => {
           if (this.chosenArray.includes(camName) || camName == newElement) {
             return camName;
           }
-        })
+        });
       }
       this.numOfChoicesChosen = this.chosenArray.length;
       this.selected.emit(this.chosenArray);

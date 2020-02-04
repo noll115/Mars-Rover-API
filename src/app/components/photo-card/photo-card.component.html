@@ -1,1 +1,7 @@
-<p>{{label}}</p>
+<div class="label">{{label}}</div>
+<span *ngIf="!loading">
+    <div>Photos: {{cardData.numOfPhotos}}</div>
+    <div *ngIf="cardData.sampleImg">Sample Photo: </div>
+    <img *ngIf="cardData.sampleImg" [src]="cardData.sampleImg">
+</span>
+<div class="loading" *ngIf="loading"></div>

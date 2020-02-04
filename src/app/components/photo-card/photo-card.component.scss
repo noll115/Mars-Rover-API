@@ -1,0 +1,41 @@
+$botMargin: 0.8rem;
+
+* {
+  margin-bottom: $botMargin;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.label {
+  margin: 0;
+  margin-bottom: $botMargin * 3;
+  font-weight: bold;
+  font-size: 1.4rem;
+  width: fit-content;
+}
+
+img {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.loading {
+  margin: 0 auto;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+  border: beige solid 10px;
+  border-top: 10px #003f64 solid;
+  border-radius: 50%;
+  animation: load 1s ease-in-out infinite forwards;
+}
+
+@keyframes load {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

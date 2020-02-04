@@ -24,8 +24,19 @@
   flex-direction: column;
   color: black;
   background-color: white;
+  z-index: 1;
+  animation: dropDownOpen 0.1s linear forwards;
+  transform-origin: top;
 }
 
+@keyframes dropDownOpen {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
 
 .clickBox {
   height: 3rem;
