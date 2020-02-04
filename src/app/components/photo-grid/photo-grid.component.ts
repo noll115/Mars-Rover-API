@@ -10,7 +10,8 @@ import { NASAService } from 'src/app/services/nasa.service';
   templateUrl: './photo-grid.component.html',
   styleUrls: ['./photo-grid.component.scss']
 })
-//Should just display data
+
+
 export class PhotoGridComponent implements OnInit {
   private _camData: Map<String, CamPhotoData>;
   private _currentReq: Subscription;
@@ -46,7 +47,7 @@ export class PhotoGridComponent implements OnInit {
     this.OrderCams();
     this._currentReq = forkJoin(requests).subscribe(this.camDataObserver);
   }
-
+  
 
   camDataObserver: Observer<CamPhotoData[]> = {
     next: camDatas => {
@@ -61,21 +62,22 @@ export class PhotoGridComponent implements OnInit {
     }
   }
   constructor(private NASAService: NASAService) { }
-
+  
   ngOnInit() {
-
+    
   }
 
   GetCamData = (roverCam: RoverCameras): CamPhotoData => {
     return this._camData[roverCam] || { numOfPhotos: 0 };
   }
-
+  
   CancelAllRequests() {
     if (this._currentReq)
-      this._currentReq.unsubscribe();
+    this._currentReq.unsubscribe();
   }
-
+  
   OrderCams() {
+    //reorder cameras to display ones with images first
     let cams = this.selectedCams.filter(({ name }) => this.camsUsed.includes(name as RoverCameras));
     this.orderedCams = [...new Set(cams.concat(this.selectedCams))]
   }

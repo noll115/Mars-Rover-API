@@ -1,19 +1,32 @@
-
-.cardGrid{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    width: 90%;
-    margin: 0 auto;
-    padding: 1rem 0 0 0;
+.cardGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0 0 0;
 }
 
-.card{
-    width: calc(calc(100%/4) - 2rem);
-    margin: 0 1rem 1rem 1rem;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    background-color: #84ACCE;
+
+.card {
+  width: calc(calc(100% / 4) - 2rem);
+  margin: 0 1rem 1rem 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #84acce;
+  opacity: 0;
+  transform-origin: left;
+  animation: appear 0.2s linear forwards;
 }
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

@@ -1,3 +1,8 @@
+*{
+  font-size: 19px;
+}
+
+
 .clickBox {
   width: 14rem;
   display: flex;
@@ -29,15 +34,6 @@
   transform-origin: top;
 }
 
-@keyframes dropDownOpen {
-  from {
-    transform: scaleY(0);
-  }
-  to {
-    transform: scaleY(1);
-  }
-}
-
 .clickBox {
   height: 3rem;
   border-radius: 5px;
@@ -50,7 +46,7 @@
   cursor: pointer;
 }
 .boxText {
-  font-size: 17px;
+  font-size: 19px;
   user-select: none;
   text-align: center;
   margin-left: 1rem;
@@ -61,6 +57,7 @@
 .selectors {
   display: flex;
   color: green;
+  font-weight: 500;
   justify-content: space-between;
   padding: 0.2rem 1rem;
   & span {
@@ -92,6 +89,7 @@
         border-left: 4px solid black;
         border-bottom: 4px solid black;
         transform: rotateZ(-45deg);
+        animation: checked 0.1s linear forwards;
       }
     }
   }
@@ -103,5 +101,14 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes dropDownOpen {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
   }
 }
